@@ -49,7 +49,7 @@ from kivy.lang.builder import Builder  # noqa: E402
 from kivy.properties import StringProperty  # noqa: E402
 
 
-class VirtualJoystickApp(App):
+class TestJoystickAppVirtual(App):
     # For kivy labels
     amiga_state = StringProperty("???")
     amiga_speed = StringProperty("???")
@@ -291,7 +291,7 @@ class VirtualJoystickApp(App):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(prog="virtual-joystick")
+    parser = argparse.ArgumentParser(prog="test-joystick-virtual")
     parser.add_argument(
         "--address", type=str, default="localhost", help="The server address"
     )
@@ -319,7 +319,7 @@ if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     try:
         loop.run_until_complete(
-            VirtualJoystickApp(
+            TestJoystickAppVirtual(
                 args.address, args.camera_port, args.canbus_port, args.stream_every_n
             ).app_func()
         )
